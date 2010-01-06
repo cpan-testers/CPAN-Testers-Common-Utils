@@ -26,7 +26,7 @@ my $build = $class->new(
             directory => [ qw/ examples inc t xt /],
         },
         resources => {
-          repository => "http://github.com/dagolden/CPAN-Testers-Common-Utils/", 
+          repository => "git://github.com/dagolden/cpan-testers-common-utils.git", 
           bugtracker => "http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Common-Utils",
         },
     },
