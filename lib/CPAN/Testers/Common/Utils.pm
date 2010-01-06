@@ -11,6 +11,31 @@ use warnings;
 our $VERSION = '0.001';
 $VERSION = eval $VERSION; ## no critic
 
+
+#--------------------------------------------------------------------------#
+# NNTP <-> GUID
+#--------------------------------------------------------------------------#
+
+# Generated with:
+# Data::UUID->new->create_from_name_str(
+#   NameSpace_URL, "http://nntp.x.perl.org/group/perl.cpan.testers"
+# );
+
+my $base_guid = "ED372D00-B19F-3F77-B713-D32BBA55D77F";
+
+sub nntp_to_guid {
+  my ($nntp_id) = @_;
+  my $guid = $base_guid;
+  substr($guid, 0, 8, sprintf("%08d",$nntp_id)); # zero padded
+  return $guid;
+}
+
+sub guid_to_nntp {
+  my ($guid) = @_;
+  my ($nntp_id) = $guid =~ m{\A0*([0-9]{1,7})}; # strip leading zeros
+  return $nntp_id;
+}
+
 1;
 
 __END__
