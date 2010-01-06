@@ -1,5 +1,5 @@
 ---
-abstract: 'Add abstract here'
+abstract: 'Utility functions for CPAN Testers modules'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
@@ -26,5 +26,5 @@ requires:
   perl: 5.006
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Common-Utils
-  repository: http://github.com/dagolden/CPAN-Testers-Common-Utils/
+  repository: git://github.com/dagolden/cpan-testers-common-utils.git
 version: 0.001

@@ -4,7 +4,7 @@
 
 =head1 NAME
 
-CPAN::Testers::Common::Utils - Add abstract here
+CPAN::Testers::Common::Utils - Utility functions for CPAN Testers modules
 
 =head1 VERSION
 
@@ -12,11 +12,56 @@ This documentation describes version 0.001.
 
 =head1 SYNOPSIS
 
-     use CPAN::Testers::Common::Utils;
+     use CPAN::Testers::Common::Utils ':all';
+ 
+     # NNTP ID <=> GUID mapping
+     $guid    = nntp_to_guid( $nntp_id );
+     $nntp_id = guid_to_nntp( $guid    );
 
 =head1 DESCRIPTION
 
+This module contains common utility functions for use by other CPAN Testers
+modules
+
 =head1 USAGE
+
+=head2 Mapping NNTP IDs to GUIDS
+
+Legacy CPAN Testers reports were sent via email and made available via an NNTP
+group, perl.cpan.testers.  Reports were 'indexed' by their NNTP ID.  The next
+generation of CPAN Testers uses a GUID to identify reports.  
+
+Old reports with an NNTP ID are mapped to GUIDs by replacing the first 8 hex
+characters of a common 'base GUID' with a zero-padded decimal representation of
+the NNTP ID.  
+
+   XXXXXXXX-B19F-3F77-B713-D32BBA55D77F
+
+Such GUIDS are visually distinctive and have the nice feature of
+sorting earlier than second-generated report GUIDS based on a timestamp.
+
+Two translation functions are provided for convenience.
+
+=head3 C<<< nntp_to_guid >>>
+
+     $guid    = nntp_to_guid( $nntp_id );
+
+Given a numeric NNTP ID, returns a standard string-form GUID.  (No range
+checking is done.) Examples: 
+
+   nntp_to_guid( 51432   );  # 00051432-B19F-3F77-B713-D32BBA55D77F
+   nntp_to_guid( 6171265 );  # 06171265-B19F-3F77-B713-D32BBA55D77F
+
+=head3 C<<< guid_to_nntp >>>
+
+     $guid    = nntp_to_guid( $nntp_id );
+
+Given a GUID of the form described above, returns the decimal number
+in the first 8 characaters.  (Again, there is no error checking that
+the GUID is properly formatted.)  Examples:
+
+   guid_to_nntp( '00051432-B19F-3F77-B713-D32BBA55D77F' ); # 51432
+   guid_to_nntp( '06171265-B19F-3F77-B713-D32BBA55D77F' ); # 6171265 
 
 =head1 BUGS
 
@@ -27,6 +72,18 @@ When submitting a bug or request, please include a test-file or a patch to an
 existing test-file that illustrates the bug or desired feature.
 
 =head1 SEE ALSO
+
+=over
+
+=item *
+
+Data::GUID
+
+=item *
+
+Data::UUID
+
+=back
 
 =head1 AUTHOR
 
