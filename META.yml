@@ -1,0 +1,30 @@
+---
+abstract: 'Add abstract here'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  Test::More: 0.47
+configure_requires:
+  Module::Build: 0.35
+generated_by: 'Module::Build version 0.3515'
+license: apache
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: CPAN-Testers-Common-Utils
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+    - xt
+provides:
+  CPAN::Testers::Common::Utils:
+    file: lib/CPAN/Testers/Common/Utils.pm
+    version: 0.001
+requires:
+  perl: 5.006
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Common-Utils
+  repository: http://github.com/dagolden/CPAN-Testers-Common-Utils/
+version: 0.001
