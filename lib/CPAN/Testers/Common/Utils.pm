@@ -1,7 +1,7 @@
 # Copyright (c) 2010 by David Golden. All rights reserved.
 # Licensed under Apache License, Version 2.0 (the "License").
 # You may not use this file except in compliance with the License.
-# A copy of the License was distributed with this file or you may obtain a 
+# A copy of the License was distributed with this file or you may obtain a
 # copy of the License from http://www.apache.org/licenses/LICENSE-2.0
 
 package CPAN::Testers::Common::Utils;
@@ -14,7 +14,7 @@ $VERSION = eval $VERSION; ## no critic
 use Exporter ();
 our @ISA = qw/Exporter/;
 our @EXPORT_OK = qw(
-  nntp_to_guid 
+  nntp_to_guid
   guid_to_nntp
 );
 our %EXPORT_TAGS = (
@@ -74,20 +74,20 @@ modules
 
 = USAGE
 
-== Mapping NNTP IDs to GUIDS
+== Mapping NNTP IDs to GUIDs
 
 Legacy CPAN Testers reports were sent via email and made available via an NNTP
-group, perl.cpan.testers.  Reports were 'indexed' by their NNTP ID.  The next
-generation of CPAN Testers uses a GUID to identify reports.  
+group, C<perl.cpan.testers>.  Reports were 'indexed' by their NNTP ID.  The next
+generation of CPAN Testers uses a GUID to identify reports.
 
 Old reports with an NNTP ID are mapped to GUIDs by replacing the first 8 hex
 characters of a common 'base GUID' with a zero-padded decimal representation of
-the NNTP ID.  
+the NNTP ID.
 
   XXXXXXXX-B19F-3F77-B713-D32BBA55D77F
-  
-Such GUIDS are visually distinctive and have the nice feature of
-sorting earlier than second-generated report GUIDS based on a timestamp.
+
+Such GUIDs are visually distinctive and have the nice feature of
+sorting earlier than second-generated report GUIDs based on a timestamp.
 
 Two translation functions are provided for convenience.
 
@@ -96,7 +96,7 @@ Two translation functions are provided for convenience.
     $guid    = nntp_to_guid( $nntp_id );
 
 Given a numeric NNTP ID, returns a standard string-form GUID.  (No range
-checking is done.) Examples: 
+checking is done.) Examples:
 
   nntp_to_guid( 51432   );  # 00051432-B19F-3F77-B713-D32BBA55D77F
   nntp_to_guid( 6171265 );  # 06171265-B19F-3F77-B713-D32BBA55D77F
@@ -110,11 +110,11 @@ in the first 8 characaters.  (Again, there is no error checking that
 the GUID is properly formatted.)  Examples:
 
   guid_to_nntp( '00051432-B19F-3F77-B713-D32BBA55D77F' ); # 51432
-  guid_to_nntp( '06171265-B19F-3F77-B713-D32BBA55D77F' ); # 6171265 
-  
+  guid_to_nntp( '06171265-B19F-3F77-B713-D32BBA55D77F' ); # 6171265
+
 = BUGS
 
-Please report any bugs or feature requests using the CPAN Request Tracker  
+Please report any bugs or feature requests using the CPAN Request Tracker
 web interface at [http://rt.cpan.org/Dist/Display.html?Queue=CPAN-Testers-Common-Utils]
 
 When submitting a bug or request, please include a test-file or a patch to an
@@ -135,7 +135,7 @@ Copyright (c) 2010 by David A. Golden. All rights reserved.
 
 Licensed under Apache License, Version 2.0 (the "License").
 You may not use this file except in compliance with the License.
-A copy of the License was distributed with this file or you may obtain a 
+A copy of the License was distributed with this file or you may obtain a
 copy of the License from http://www.apache.org/licenses/LICENSE-2.0
 
 Files produced as output though the use of this software, shall not be
