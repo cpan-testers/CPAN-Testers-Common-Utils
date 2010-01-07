@@ -122,8 +122,7 @@ existing test-file that illustrates the bug or desired feature.
 
 = SEE ALSO
 
-* Data::GUID
-* Data::UUID
+* Data::UUID::LibUUID
 
 = AUTHOR
 
