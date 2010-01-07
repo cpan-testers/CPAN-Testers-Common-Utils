@@ -4,3 +4,4 @@ GUID
 GUIDs
 IDs
 NNTP
+URNs

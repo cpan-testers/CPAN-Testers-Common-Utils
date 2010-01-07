@@ -1,7 +1,7 @@
 # Copyright (c) 2010 by David Golden. All rights reserved.
 # Licensed under Apache License, Version 2.0 (the "License").
 # You may not use this file except in compliance with the License.
-# A copy of the License was distributed with this file or you may obtain a 
+# A copy of the License was distributed with this file or you may obtain a
 # copy of the License from http://www.apache.org/licenses/LICENSE-2.0
 
 use strict;
@@ -9,7 +9,7 @@ use lib 'inc';
 eval "require Pod::WikiDoc";
 my $class = $@ ? "Module::Build" : "Module::Build::WikiDoc";
 eval "require $class";
-my $build = $class->new( 
+my $build = $class->new(
     module_name => 'CPAN::Testers::Common::Utils',
     dist_author => 'David Golden <dagolden@cpan.org>',
     license => 'apache',
@@ -17,16 +17,17 @@ my $build = $class->new(
     create_makefile_pl  => 'traditional',
     requires => {
         'perl' => '5.006',
+        'URI::urn::uuid' => '0.03',
     },
     build_requires => {
         'Test::More' => 0.47,
     },
-    meta_add            => { 
-        no_index => { 
+    meta_add            => {
+        no_index => {
             directory => [ qw/ examples inc t xt /],
         },
         resources => {
-          repository => "git://github.com/dagolden/cpan-testers-common-utils.git", 
+          repository => "git://github.com/dagolden/cpan-testers-common-utils.git",
           bugtracker => "http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Common-Utils",
         },
     },
