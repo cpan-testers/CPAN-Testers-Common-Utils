@@ -17,15 +17,14 @@ my $build = $class->new(
     create_makefile_pl  => 'traditional',
     requires => {
         'perl' => '5.006',
-        'URI::urn::uuid' => '0.03',
     },
     build_requires => {
         'Test::More' => 0.47,
     },
+    no_index => { 
+      directory => [ qw/ examples inc t xt /],
+    },
     meta_add            => {
-        no_index => {
-            directory => [ qw/ examples inc t xt /],
-        },
         resources => {
           repository => "git://github.com/dagolden/cpan-testers-common-utils.git",
           bugtracker => "http://rt.cpan.org/NoAuth/Bugs.html?Dist=CPAN-Testers-Common-Utils",
