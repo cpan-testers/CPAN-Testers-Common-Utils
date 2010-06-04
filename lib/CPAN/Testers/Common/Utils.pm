@@ -25,6 +25,9 @@ our %EXPORT_TAGS = (
 # Lower case is canonical
 my $base_guid = "ed372d00-b19f-3f77-b713-d32bba55d77f";
 
+# strip leading zeros on extraction
+my $nntp_re = qr{\A0*([0-9]{1,7})-b19f-3f77-b713-d32bba55d77f$};
+
 sub nntp_to_guid {
   my ($nntp_id) = @_;
   my $guid = $base_guid;
@@ -34,7 +37,7 @@ sub nntp_to_guid {
 
 sub guid_to_nntp {
   my ($guid) = @_;
-  my ($nntp_id) = $guid =~ m{\A0*([0-9]{1,7})}; # strip leading zeros
+  my ($nntp_id) = $guid =~ $nntp_re;
   return $nntp_id;
 }
 
@@ -91,11 +94,13 @@ checking is done.) Examples:
     $guid    = nntp_to_guid( $nntp_id );
 
 Given a GUID string of the form described above, returns the decimal number
-in the first 8 characaters.  (Again, there is no error checking that
-the GUID is properly formatted.)  Examples:
+in the first 8 characaters.  Examples:
 
   guid_to_nntp( '00051432-b19f-3f77-b713-d32bba55d77f' ); # 51432
   guid_to_nntp( '06171265-b19f-3f77-b713-d32bba55d77f' ); # 6171265
+
+If the GUID string is not derived from the base GUID, this function 
+returns {undef}.
 
 = BUGS
 

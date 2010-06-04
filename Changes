@@ -2,7 +2,9 @@ Revision history for CPAN-Testers-Common-Utils
 
 {{ $NEXT }}
 
-    - distribution managed with Dist::Zilla
+    - have guid_to_nntp return undef if GUID is not a converted NNTP GUID
+
+    - distribution now managed with Dist::Zilla
 
 0.001 Sun Jan 17 22:34:30 EST 2010
 
