@@ -3,6 +3,8 @@ use warnings;
 package CPAN::Testers::Common::Utils;
 # ABSTRACT: Utility functions for CPAN Testers modules
 
+our $VERSION = '0.003';
+
 use Exporter ();
 our @ISA = qw/Exporter/;
 our @EXPORT_OK = qw(
@@ -45,9 +47,7 @@ sub guid_to_nntp {
 
 __END__
 
-=begin wikidoc
-
-= SYNOPSIS
+=head1 SYNOPSIS
 
     use CPAN::Testers::Common::Utils ':all';
 
@@ -55,14 +55,14 @@ __END__
     $guid    = nntp_to_guid( $nntp_id );
     $nntp_id = guid_to_nntp( $guid    );
 
-= DESCRIPTION
+=head1 DESCRIPTION
 
 This module contains common utility functions for use by other CPAN Testers
 modules
 
-= USAGE
+=head1 USAGE
 
-== Mapping NNTP IDs to GUIDs
+=head2 Mapping NNTP IDs to GUIDs
 
 Legacy CPAN Testers reports were sent via email and made available via an
 NNTP group, C<perl.cpan.testers>.  Reports were 'indexed' by their NNTP ID.
@@ -79,7 +79,7 @@ sorting earlier than second-generated report GUIDs based on a timestamp.
 
 Two translation functions are provided for convenience.
 
-=== {nntp_to_guid}
+=head3 nntp_to_guid
 
     $guid    = nntp_to_guid( $nntp_id );
 
@@ -89,32 +89,23 @@ checking is done.) Examples:
   nntp_to_guid( 51432   );  # 00051432-b19f-3f77-b713-d32bba55d77f
   nntp_to_guid( 6171265 );  # 06171265-b19f-3f77-b713-d32bba55d77f
 
-=== {guid_to_nntp}
+=head3 guid_to_nntp
 
     $guid    = nntp_to_guid( $nntp_id );
 
 Given a GUID string of the form described above, returns the decimal number
-in the first 8 characaters.  Examples:
+in the first 8 characters.  Examples:
 
   guid_to_nntp( '00051432-b19f-3f77-b713-d32bba55d77f' ); # 51432
   guid_to_nntp( '06171265-b19f-3f77-b713-d32bba55d77f' ); # 6171265
 
 If the GUID string is not derived from the base GUID, this function 
-returns {undef}.
+returns C<undef>.
 
-= BUGS
+=head1 SEE ALSO
 
-Please report any bugs or feature requests using the CPAN Request Tracker
-web interface at [http://rt.cpan.org/Dist/Display.html?Queue=CPAN-Testers-Common-Utils]
-
-When submitting a bug or request, please include a test-file or a patch to an
-existing test-file that illustrates the bug or desired feature.
-
-= SEE ALSO
-
-* Data::GUID::Any
-
-=end wikidoc
+=for :list
+* L<Data::GUID::Any>
 
 =cut
 
