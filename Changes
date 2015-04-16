@@ -2,6 +2,10 @@ Revision history for CPAN-Testers-Common-Utils
 
 {{ $NEXT }}
 
+    [Meta]
+
+    - Updated repo and bugtracker information
+
 0.002     2010-06-04 10:37:45 EST5EDT
 
     - have guid_to_nntp return undef if GUID is not a converted NNTP GUID
