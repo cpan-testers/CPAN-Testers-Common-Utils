@@ -3,7 +3,7 @@ use warnings;
 package CPAN::Testers::Common::Utils;
 # ABSTRACT: Utility functions for CPAN Testers modules
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 use Exporter ();
 our @ISA = qw/Exporter/;
